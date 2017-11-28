@@ -7,7 +7,6 @@
 
 typedef void(*NewValueHandlerFnPtr)(int);
 
-
 void IntHandler1(int n) {
     const int Threshold = 50;
     if (n > Threshold) {
@@ -122,6 +121,12 @@ void EventHandlerPassedAsAnArgumentDemo() {
 // we want to define "function" (not real function but function object...) here, inside a function - 
 // we can use lambda expression (lambda).
 // Lambda expression crates anonymous (unnamed) function object (nameless functor).
+//
+// [...] - capture clause (capture list) - defines which variables from the 
+//         outer scope can be accessible from the lambda and how (by value or by
+//         reference)
+// (...) - argument list - lambda arguments
+// {...} - lambda function body
 void EventHandlerIsLambdaDemo() {
     RunEventLoop([](int n) {
         std::cout << "New value: " << n << std::endl;
